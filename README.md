@@ -14,6 +14,9 @@ Below you'll find an overview of the fields.
 | Fieldname        | Model           | Type  | Description | Added in |
 | ------------- |-------------| -----|----|----|
 | `theme_color`   | `Category` | `colorpicker` | Gives a color to a category.| `1.0.0` |
+| `theme_css`   | `Category` | `codeeditor` | Adds custom styling to a category.| `1.0.0` |
+
+
 
 ## Issues or other problems
 Yikes. Found a problem with this plugin? Submit an issue and I'll look at it ASAP. If you fix it yourself and submit a PR I'll send you a cookie.
