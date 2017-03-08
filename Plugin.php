@@ -1,7 +1,9 @@
-<?php namespace Rebel59\Blogtheming;
+<?php namespace Rebel59\Blogthemes;
 
 use Backend;
 use Illuminate\Support\Facades\Event;
+use RainLab\Blog\Controllers\Categories;
+use RainLab\Blog\Models\Category;
 use System\Classes\PluginBase;
 
 /**
@@ -17,8 +19,8 @@ class Plugin extends PluginBase
     public function pluginDetails()
     {
         return [
-            'name'        => 'Rainlab Blog Colors',
-            'description' => 'Adds color to the blog categories',
+            'name'        => 'rebel59.blogthemes::lang.plugin.name',
+            'description' => 'rebel59.blogthemes::lang.plugin.description',
             'author'      => 'Rebel59',
             'icon'        => 'icon-eyedropper'
         ];
@@ -36,26 +38,36 @@ class Plugin extends PluginBase
      */
     public function boot()
     {
-        Event::listen('backend.form.extendFields', function($widget) {
+        Category::extend(function ($model) {
+            $model->attachMany['theme_images'] = [
+                'System\Models\File', 'order' => 'sort_order', 'delete' => true
+            ];
+        });
 
-            if (!$widget->model instanceof \RainLab\Blog\Models\Category) {
+        Categories::extendFormFields(function ($form, $model) {
+            if (!$model instanceof Category)
                 return;
-            }
 
-            $widget->addTabFields([
+            $form->addTabFields([
+                'theme_images' => [
+                    'label'     => 'rebel59.blogthemes::lang.models.category.fields.theme_images',
+                    'type'      => 'fileupload',
+                    'mode'      => 'image',
+                    'tab'     =>'rebel59.blogthemes::lang.tabs.theme'
+
+                ],
                 'theme_color' => [
-                    'label'   => 'Theme Color',
+                    'label'   => 'rebel59.blogthemes::lang.models.category.fields.theme_color',
                     'type'    => 'colorpicker',
-                    'tab'     =>'Themes'
+                    'tab'     =>'rebel59.blogthemes::lang.tabs.theme'
                 ],
                 'theme_css' => [
-                    'label'   => 'Custom CSS',
+                    'label'   => 'rebel59.blogthemes::lang.models.category.fields.theme_css',
                     'type'    => 'codeeditor',
                     'language'=> 'css',
-                    'tab'     =>'Advanced Themes'
+                    'tab'     =>'rebel59.blogthemes::lang.tabs.advanced_theme'
                 ]
             ]);
         });
-
     }
 }

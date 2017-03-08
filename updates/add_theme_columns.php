@@ -1,4 +1,4 @@
-<?php namespace Rebel59\Blogtheming\Updates;
+<?php namespace Rebel59\Blogthemes\Updates;
 
 use Schema;
 use October\Rain\Database\Schema\Blueprint;
