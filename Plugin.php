@@ -46,12 +46,13 @@ class Plugin extends PluginBase
                 'theme_color' => [
                     'label'   => 'Theme Color',
                     'type'    => 'colorpicker',
-                    'tab'=>'Themes'
+                    'tab'     =>'Themes'
                 ],
                 'theme_css' => [
                     'label'   => 'Custom CSS',
                     'type'    => 'codeeditor',
-                    'tab'=>'Advanced Themes'
+                    'language'=> 'css',
+                    'tab'     =>'Advanced Themes'
                 ]
             ]);
         });
