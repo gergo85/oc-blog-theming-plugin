@@ -25,5 +25,5 @@ Yikes. Found a problem with this plugin? Submit an issue and I'll look at it ASA
 Submit a pull request or submit an issue. I will get back to you as soon as possible to discuss if we can work something out.
 
 #### Copyright
-Developed for Rebel59 by @CptMeatball. 
+Developed for [Rebel59](https://rebel59.nl) by @CptMeatball. 
 Plugin may be altered in anyway, provided you link back to this repo.
