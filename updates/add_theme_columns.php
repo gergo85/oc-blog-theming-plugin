@@ -10,6 +10,7 @@ class AddThemeColumns extends Migration
     {
         Schema::table('rainlab_blog_categories', function(Blueprint $table) {
             $table->string('theme_color');
+            $table->longText('theme_css');
         });
     }
 
@@ -17,6 +18,7 @@ class AddThemeColumns extends Migration
     {
         Schema::table('rainlab_blog_categories', function(Blueprint $table) {
             $table->dropColumn('theme_color');
+            $table->dropColumn('theme_css');
         });
     }
 }

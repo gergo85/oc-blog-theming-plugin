@@ -1,10 +1,11 @@
 <?php namespace Rebel59\Blogtheming;
 
 use Backend;
+use Illuminate\Support\Facades\Event;
 use System\Classes\PluginBase;
 
 /**
- * blogtheming Plugin Information File
+ * Rebel59 's Blog Theming Plugin Information File
  */
 class Plugin extends PluginBase
 {
@@ -16,12 +17,17 @@ class Plugin extends PluginBase
     public function pluginDetails()
     {
         return [
-            'name'        => 'Rainlab Blog Theming',
-            'description' => 'Adds theming options to the Rainlab.Blog plugin',
+            'name'        => 'Rainlab Blog Colors',
+            'description' => 'Adds color to the blog categories',
             'author'      => 'Rebel59',
             'icon'        => 'icon-eyedropper'
         ];
     }
+
+    /**
+     * @var array Plugin dependencies
+     */
+    public $require = ['Rainlab.Blog'];
 
     /**
      * Boot method, called right before the request route.
@@ -30,20 +36,25 @@ class Plugin extends PluginBase
      */
     public function boot()
     {
-        // Extend all backend form usage
         Event::listen('backend.form.extendFields', function($widget) {
 
-            // Only for the User model
             if (!$widget->model instanceof \RainLab\Blog\Models\Category) {
                 return;
             }
 
-            $widget->addFields([
+            $widget->addTabFields([
                 'theme_color' => [
                     'label'   => 'Theme Color',
                     'type'    => 'colorpicker',
+                    'tab'=>'Themes'
+                ],
+                'theme_css' => [
+                    'label'   => 'Custom CSS',
+                    'type'    => 'codeeditor',
+                    'tab'=>'Advanced Themes'
                 ]
             ]);
         });
+
     }
 }
