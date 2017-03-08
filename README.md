@@ -15,6 +15,23 @@ Below you'll find an overview of the fields.
 | ------------- |-------------| -----|----|----|
 | `theme_color`   | `Category` | `colorpicker` | Gives a color to a category.| `1.0.0` |
 | `theme_css`   | `Category` | `codeeditor` | Adds custom styling to a category.| `1.0.0` |
+| `theme_images`   | `Category` | `fileupload` | Adds featured images to a category.| `1.0.0` |
+
+#### Examples
+`theme_color`
+    
+    {{ category.theme_color }}
+    
+`theme_css`
+
+    {{ category.theme_css }}
+    
+`theme_images`
+
+     {% for image in category.theme_images %}
+         {{ image.path }}
+     {% endfor %}
+
 
 ---
 
