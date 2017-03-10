@@ -7,8 +7,8 @@ return [
     'models' => [
         'category' => [
             'fields' => [
-                'theme_color' => 'Thema Kleur',
-                'theme_css' => 'Thema CSS',
+                'color' => 'Thema Kleur',
+                'css' => 'Thema CSS',
                 'theme_images' => 'Thema Afbeeldingen'
             ]
         ]

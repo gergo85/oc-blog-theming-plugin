@@ -7,8 +7,8 @@ return [
     'models' => [
         'category' => [
             'fields' => [
-                'theme_color' => 'Theme Color',
-                'theme_css' => 'Theme CSS',
+                'color' => 'Theme Color',
+                'css' => 'Theme CSS',
                 'theme_images' => 'Theme Images'
             ]
         ]

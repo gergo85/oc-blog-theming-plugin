@@ -56,13 +56,13 @@ class Plugin extends PluginBase
                     'tab'     =>'rebel59.blogthemes::lang.tabs.theme'
 
                 ],
-                'theme_color' => [
-                    'label'   => 'rebel59.blogthemes::lang.models.category.fields.theme_color',
+                'color' => [
+                    'label'   => 'rebel59.blogthemes::lang.models.category.fields.color',
                     'type'    => 'colorpicker',
                     'tab'     =>'rebel59.blogthemes::lang.tabs.theme'
                 ],
-                'theme_css' => [
-                    'label'   => 'rebel59.blogthemes::lang.models.category.fields.theme_css',
+                'css' => [
+                    'label'   => 'rebel59.blogthemes::lang.models.category.fields.css',
                     'type'    => 'codeeditor',
                     'language'=> 'css',
                     'tab'     =>'rebel59.blogthemes::lang.tabs.advanced_theme'
